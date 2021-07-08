@@ -47,3 +47,8 @@
   user-select: none;
  }
  
+ .activeCard {
+  color: red;
+  background: pink;
+ }
+ 
