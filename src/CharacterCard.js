@@ -1,7 +1,7 @@
 import Reavt from 'react'
 
-export default function CharacterCard() {
+export default function CharacterCard(props) {
     return (
-        <div>Character</div>
+        <div>{props.value}</div>
     )
 }
