@@ -2,6 +2,7 @@ import React, {useState, unmountComponentAtNode} from 'react';
 import Lodash, { forEach } from 'lodash';
 import CharacterCard from './CharacterCard';
 
+var maxAttempt = 5;
 const prepareStateFromWord = (givenWord) => {
     let word = givenWord.toUpperCase()
     let chars = Lodash.shuffle(Array.from(word))
@@ -43,7 +44,11 @@ export default function WordCard(props) {
                 console.log("No! Wrong")
                 setState({...state, guess: '', attempt: state.attempt+1})
                 console.log(`Now is time ${state.attempt}`)
-                alert(`You lose (${state.attempt} time${state.attempt > 1 ? 's' : ''})! Try again. (${correctPercent().toFixed(2)}%)`)
+                alert(`You lose (${state.attempt}/${maxAttempt} time${state.attempt > 1 ? 's' : ''})! Try again. (${correctPercent().toFixed(2)}%)`)
+            }
+            if (state.attempt === maxAttempt) {
+                setState({...state, isComplete: true})
+                alert(`You have maximum time, finally you lose!`)
             }
         }
     }

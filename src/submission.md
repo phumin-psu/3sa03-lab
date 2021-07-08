@@ -5,6 +5,7 @@
 - Add alert box to tell win or lose.
 - Remake UI.
 - Show correct positon percentage.
+- Add maximum time.
 
 ## Creator
 Phumin Mukem `6210110272`
