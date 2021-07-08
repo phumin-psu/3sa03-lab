@@ -2,10 +2,10 @@ import React from 'react';
 import './App.css';
 import WordCard from './WordCard';
 
-const word = "Hello";
+const word = ["Hello", "CoE", "Computer", "Engineering", "PSU"];
 function App() {
   return (
-    <WordCard value={word}/>
+    <WordCard value={word[Math.floor(Math.random() * word.length)]}/>
   );
 }
 
