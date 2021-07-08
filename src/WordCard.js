@@ -1,11 +1,17 @@
 import React from 'react';
 import CharacterCard from './CharacterCard';
 
-const word = "Hello";
-export default function WordCard() {
+export default function WordCard(props) {
+    const activationHandler = (c) => {
+        console.log(c + " Activated")
+    }
     return (
         <div>
-            {Array.from(word).map((c, i) => <CharacterCard value={c} key={i}/>)}
+            {
+                Array.from(props.value).map((c, i) =>
+                    <CharacterCard value={c} key={i} activationHandler={activationHandler}/>
+                )
+            }
         </div>
     )
 }
