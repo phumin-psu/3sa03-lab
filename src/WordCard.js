@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, unmountComponentAtNode} from 'react';
 import Lodash from 'lodash';
 import CharacterCard from './CharacterCard';
 
@@ -34,7 +34,7 @@ export default function WordCard(props) {
                 console.log("No! Wrong")
                 setState({...state, guess: '', attempt: state.attempt+1})
                 console.log(`Now is time ${state.attempt}`)
-                alert("You lose! Try again.")
+                alert(`You lose (${state.attempt} time${state.attempt > 1 ? 's' : ''})! Try again.`)
             }
         }
     }
