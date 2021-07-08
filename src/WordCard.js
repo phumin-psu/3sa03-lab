@@ -7,7 +7,10 @@ const prepareStateFromWord = (givenWord) => {
     let chars = Lodash.shuffle(Array.from(word))
     return {
         word,
-        chars
+        chars,
+        attemp: 1,
+        guess: '',
+        isComplete: false
     }
 }
 
@@ -16,6 +19,22 @@ export default function WordCard(props) {
 
     const activationHandler = (c) => {
         console.log(c + " Activated")
+
+        let guess = state.guess + c
+        console.log(`Now guess is ${guess}`)
+
+        setState({...state, guess})
+
+        if (guess.length === state.word.length) {
+            if (guess === state.word) {
+                console.log("OK! True.")
+                setState({...state, isComplete: true})
+            } else {
+                console.log("No! Wrong")
+                setState({...state, guess: '', attemp: state.attemp++})
+                console.log(`Now is time ${state.attemp}`)
+            }
+        }
     }
 
     return (
