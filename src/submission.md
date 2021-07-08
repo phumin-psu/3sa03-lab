@@ -3,6 +3,7 @@
 ## Add-on Details
 - Add more word and pick them randomly.
 - Add alert box to tell win or lose.
+- Remake UI
 
 ## Creator
 Phumin Mukem `6210110272`
