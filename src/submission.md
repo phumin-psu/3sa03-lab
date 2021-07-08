@@ -3,7 +3,8 @@
 ## Add-on Details
 - Add more word and pick them randomly.
 - Add alert box to tell win or lose.
-- Remake UI
+- Remake UI.
+- Show correct positon percentage.
 
 ## Creator
 Phumin Mukem `6210110272`

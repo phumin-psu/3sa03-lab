@@ -1,5 +1,5 @@
 import React, {useState, unmountComponentAtNode} from 'react';
-import Lodash from 'lodash';
+import Lodash, { forEach } from 'lodash';
 import CharacterCard from './CharacterCard';
 
 const prepareStateFromWord = (givenWord) => {
@@ -31,10 +31,19 @@ export default function WordCard(props) {
                 setState({...state, isComplete: true})
                 alert(`You win! Text is "${state.word}"`)
             } else {
+                var correctPercent = function() {
+                    var right = 0;
+                    for (var i = 0; i < state.word.length; i++) {
+                        if (state.word.charAt(i) === guess.charAt(i)) {
+                            right++;
+                        }
+                    }
+                    return right / state.word.length * 100;
+                }
                 console.log("No! Wrong")
                 setState({...state, guess: '', attempt: state.attempt+1})
                 console.log(`Now is time ${state.attempt}`)
-                alert(`You lose (${state.attempt} time${state.attempt > 1 ? 's' : ''})! Try again.`)
+                alert(`You lose (${state.attempt} time${state.attempt > 1 ? 's' : ''})! Try again. (${correctPercent().toFixed(2)}%)`)
             }
         }
     }
